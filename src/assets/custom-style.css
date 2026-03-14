@@ -1,3 +1,5 @@
-.initial {
-  background-color: #f0f0f0;
+:root {
+  --primary-color: rgba(130, 76, 8, 1);
+  --primary-button: rgba(130, 76, 8, 1);
+  --primary-button-hover: rgba(252, 228, 140, 1);
 }

@@ -2,13 +2,9 @@
   <header
     class="py-6 px-24 flex w-full items-center justify-between bg-[url(../assets/images/header-bg.png)] text-white"
   >
-    <div>
-      <span>{{ $t(locale) }}</span>
-    </div>
+    <LocalePickerButton />
 
-    <div>
-      <img src="../assets/images/logo.png" alt="" />
-    </div>
+    <MainLogo class="h-20" />
 
     <div>
       <CartButton />
@@ -18,7 +14,6 @@
 
 <script setup lang="ts">
 import CartButton from "@/components/common/button/CartButton.vue";
-import i18n from "@/langs/i18n";
-
-const locale = i18n.global.locale.value;
+import LocalePickerButton from "@/components/common/button/LocalePickerButton.vue";
+import MainLogo from "@/components/common/MainLogo.vue";
 </script>
