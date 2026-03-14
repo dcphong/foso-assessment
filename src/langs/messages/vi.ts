@@ -1,5 +1,30 @@
 export default {
   vi: "Tiếng Việt",
   en: "English",
-  cart: "Giỏ hàng"
+  cart: "Giỏ hàng",
+  home: "Trang chủ",
+  introduction: "Giới thiệu",
+  service: "Dịch vụ",
+  contact: "Liên hệ",
+  news: "Tin tức",
+  comboPackages: "gói combo",
+  effect: "Hiệu ứng",
+  search: "Tìm kiếm",
+  perfectlyPolished: "Làm mới màu sắc (Mani hoặc Pedi)",
+  medicure: "Chăm sóc móng tay",
+  pedicure: "Chăm sóc móng chân",
+  drinks: "Đồ uống",
+  comments_from_customers: "Nhận xét từ khách hàng",
+  comments_from: "Nhận xét từ",
+  customer: "khách hàng",
+  viewMore: "Xem thêm",
+  schedule_a_healing_appointment: "Đặt lịch hẹn trị liệu",
+  come_toThe_OM_Lounge_to_relieve_stress_and_refresh_yourself_Beauty_starts_from_the_smallest_things_and_spreads_to_the_soul_Make_a_healing_appointment:
+    "Đến The OM Lounge để xả stress và làm mới mình. Vẻ đẹp bắt đầu từ những điều nhỏ nhất và lan tỏa đến cả tâm hồn.",
+  experience_now: "Trải nghiệm ngay",
+  street6PhuMy7districthcmcity:
+    "6 Đường G, Phú Mỹ, Quận 7, TP Hồ Chí Minh (gần Crescent Mall)",
+  mondayFriday: "Thứ 2 - Thứ 6",
+  saturdaySunday: "Thứ 7 - Chủ nhật",
+  bookNow: "Đặt lịch ngay"
 };

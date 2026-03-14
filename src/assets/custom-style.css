@@ -2,4 +2,6 @@
   --primary-color: rgba(130, 76, 8, 1);
   --primary-button: rgba(130, 76, 8, 1);
   --primary-button-hover: rgba(252, 228, 140, 1);
+  --breadcrumb-color: rgba(229, 227, 220, 1);
+  --text-light-yellow: rgba(252, 228, 140, 1);
 }
