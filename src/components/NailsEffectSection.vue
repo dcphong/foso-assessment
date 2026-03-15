@@ -30,13 +30,4 @@ import BaseTitle from "@/components/BaseTitle.vue";
 import CollapseBase from "@/components/CollapseBase.vue";
 import { effectDataList } from "@/constants/staticData";
 import { useCartStore } from "@/stores/useCart";
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
-const exampleDatas = {
-  title: "Perfectly Polished",
-  description: t("perfectlyPolished"),
-  price: 390
-};
-const dataList = Array(5).fill(exampleDatas);
 </script>
