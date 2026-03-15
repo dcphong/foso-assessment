@@ -1,13 +1,17 @@
 import vi from "@/langs/messages/vi";
+import en from "@/langs/messages/en";
 import { createI18n } from "vue-i18n";
 
 const messages = {
-  vi
+  vi,
+  en
 };
+
+export const MESSAGES_KEYS = Object.keys(messages);
 
 const i18n = createI18n({
   legacy: false,
-  locale: "vi",
+  locale: localStorage.getItem("fosoLocale") || "vi",
   fallbackLocale: "vi",
   messages
 });

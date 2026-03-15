@@ -5,7 +5,12 @@
   >
     <button
       class="absolute top-5 left-5 cursor-pointer"
-      @click="() => useCartStore().toggleCartPanel()"
+      @click="
+        () => {
+          (useCartStore().toggleCartPanel(),
+            useBackdropStore().toggleBackdrop());
+        }
+      "
     >
       <X class="text-[rgba(130,76,8,1)] size-6" />
     </button>
@@ -267,6 +272,7 @@
 
 <script setup lang="ts">
 import { IMAGES } from "@/constants/images";
+import { useBackdropStore } from "@/stores/useBackdrop";
 import { useCartStore } from "@/stores/useCart";
 import { CURRENCY_SYMBOL } from "@/utils/Currency";
 import { getDaysUntilWeekend } from "@/utils/date";
