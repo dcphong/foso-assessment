@@ -16,7 +16,7 @@ import PedicureSection from "@/components/PedicureSection.vue";
     />
 
     <div
-      class="relative bg-linear-to-t from-[rgba(97,79,56,1)] to-[rgba(164,120,40,0.92)] from-10%"
+      class="relative bg-linear-to-t from-[rgba(97,79,56,1)] to-[rgb(111,83,32,0.96)] from-10%"
     >
       <div class="relative z-10">
         <Categories />

@@ -4,6 +4,7 @@ import MainHeader from "@/components/MainHeader.vue";
 import MainSection from "@/components/MainSection.vue";
 import HealingAppointmentSection from "@/components/HealingAppointmentSection.vue";
 import MainFooter from "@/components/MainFooter.vue";
+import CommentsFromCustomersSection from "@/components/CommentsFromCustomersSection.vue";
 </script>
 
 <template>

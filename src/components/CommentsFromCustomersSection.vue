@@ -16,11 +16,9 @@
         <div class="flex gap-16.5 px-12 items-end justify-between">
           <CustomerComment
             v-for="(comment, index) in customer_comments"
-            :picture-class="index == 1 ? 'h-[928px] max-h-none' : 'h-[664px]!'"
-            :picture-container-class="
-              index == 1 ? 'max-h-none' : 'max-h-[664px]! w-[498px]'
-            "
-            :class="index == 1 ? 'w-[696px]' : 'w-[498px]'"
+            :picture-class="index == 1 ? 'h-[728px] max-h-none' : 'h-[564px]!'"
+            :picture-container-class="index == 1 ? 'max-h-none' : 'w-[448px]'"
+            :class="index == 1 ? 'w-130' : 'w-120'"
             :commentContainerClass="index == 1 ? '' : 'max-h-[288px]'"
             :key="comment.customer_name"
             v-bind="comment"
