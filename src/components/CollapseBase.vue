@@ -25,9 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import i18n from "@/langs/i18n";
 import CustomAdd from "@/components/common/icons/CustomAdd.vue";
-const locale = i18n.global.locale.value;
 
 const props = withDefaults(
   defineProps<{
