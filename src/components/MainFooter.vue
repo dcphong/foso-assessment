@@ -1,16 +1,21 @@
 <template>
-  <div class="bg-[rgba(41,30,10,1)] py-16 px-24 relative">
+  <footer
+    class="bg-[rgba(41,30,10,1)] py-10 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-24 relative overflow-hidden"
+  >
     <img
       src="../assets/images/flower.png"
-      class="absolute top-0 right-0"
+      class="absolute top-0 right-0 hidden lg:block"
       alt=""
     />
 
     <div class="flex flex-col gap-32">
-      <div class="grid grid-cols-2 gap-4 w-full">
-        <img src="../assets/images/logo.png" alt="" class="" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+        <div class="mx-auto md:mx-0">
+          <img src="../assets/images/logo.png" alt="" class="" />
+        </div>
+
         <div class="flex flex-col gap-24">
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="flex flex-col gap-8 items-start">
               <div class="gap-x-4 flex items-center">
                 <div class="flex gap-1.25 p-0 m-0">
@@ -51,7 +56,7 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="flex flex-col gap-8">
               <div class="gap-x-4 flex items-center">
                 <div class="flex gap-1.25 p-0 m-0">
@@ -90,14 +95,14 @@
               </div>
             </div>
 
-            <div class="h-[66px] flex items-end relative">
+            <div class="h-[66px] flex items-end relative mx-auto sm:mx-0">
               <span
                 class="font-semibold text-[14px] text-[rgba(252,228,140,1)]"
                 >{{ $t("bookNow") }}</span
               >
               <img
                 src="../assets/images/yellow-circle.png"
-                class="absolute -bottom-19 -left-20"
+                class="-bottom-19 -left-20 hidden sm:absolute sm:block"
                 alt=""
               />
             </div>
@@ -105,12 +110,14 @@
         </div>
       </div>
 
-      <div class="flex justify-between">
-        <img src="../assets/images/socialMedia.png" class="h-7" alt="" />
-        <span class="text-[10px] text-[rgba(98,91,90,1)]"
+      <div class="flex justify-between flex-col gap-3 md:gap-0 md:flex-row">
+        <div class="mx-auto md:mx-0">
+          <img src="../assets/images/socialMedia.png" class="h-7" alt="" />
+        </div>
+        <span class="text-[10px] text-[rgba(98,91,90,1)] text-center"
           >© 2025 — Copyright The OM Lounge. All rights reserved.</span
         >
       </div>
     </div>
-  </div>
+  </footer>
 </template>

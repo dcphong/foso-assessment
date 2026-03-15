@@ -6,25 +6,41 @@
       class="absolute inset-0 w-full h-full z-0 object-cover"
     />
     <div
-      class="bg-linear-to-t from-[rgba(97,79,56,1)] to-[rgba(164,120,40,0.2)] relative py-24 space-y-12"
+      class="bg-linear-to-t from-[rgba(97,79,56,1)] to-[rgba(164,120,40,0.2)] relative py-12 sm:py-16 lg:py-24 space-y-8 sm:space-y-10 lg:space-y-12"
     >
-      <div class="flex flex-col w-fit mx-auto text-center relative">
-        <div class="flex mb-24 flex-col text-white">
-          <span class="uppercase text-[48px]">{{ $t("comments_from") }}</span>
-          <span class="text-[128px] capitalize">{{ $t("customer") }}</span>
+      <div
+        class="flex flex-col w-full max-w-400 mx-auto text-center relative px-4 sm:px-8 lg:px-0"
+      >
+        <div
+          class="flex mb-10 sm:mb-16 lg:mb-24 flex-col text-white leading-none"
+        >
+          <span class="uppercase text-2xl sm:text-4xl lg:text-[48px]">{{
+            $t("comments_from")
+          }}</span>
+          <span class="text-6xl sm:text-8xl lg:text-[128px] capitalize">{{
+            $t("customer")
+          }}</span>
         </div>
-        <div class="flex gap-16.5 px-12 items-end justify-between">
+        <div
+          class="flex flex-col lg:flex-row gap-8 lg:gap-16.5 lg:px-12 items-stretch lg:items-end justify-between"
+        >
           <CustomerComment
             v-for="(comment, index) in customer_comments"
-            :picture-class="index == 1 ? 'h-[728px] max-h-none' : 'h-[564px]!'"
-            :picture-container-class="index == 1 ? 'max-h-none' : 'w-[448px]'"
-            :class="index == 1 ? 'w-130' : 'w-120'"
-            :commentContainerClass="index == 1 ? '' : 'max-h-[288px]'"
+            :picture-class="
+              index == 1
+                ? 'h-72 sm:h-96 lg:h-[728px] max-h-none'
+                : 'h-64 sm:h-80 lg:h-[564px]'
+            "
+            :picture-container-class="
+              index == 1 ? 'max-h-none w-full' : 'w-full lg:w-[448px]'
+            "
+            :class="index == 1 ? 'w-full lg:w-130' : 'w-full lg:w-120'"
+            :commentContainerClass="index == 1 ? '' : 'lg:max-h-[288px]'"
             :key="comment.customer_name"
             v-bind="comment"
           />
         </div>
-        <PaginationCustom class="mt-12 mx-auto" />
+        <PaginationCustom class="mt-8 sm:mt-10 lg:mt-12 mx-auto" />
       </div>
     </div>
   </section>

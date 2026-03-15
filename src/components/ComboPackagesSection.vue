@@ -1,6 +1,12 @@
 <template>
-  <div class="pt-12 px-24 gap-24 flex">
-    <img :src="nailsPicture" alt="Nails" />
+  <div
+    class="pt-8 px-4 sm:px-8 md:px-12 lg:pt-12 lg:px-24 gap-8 lg:gap-24 flex flex-col lg:flex-row"
+  >
+    <img
+      :src="nailsPicture"
+      alt="Nails"
+      class="w-full lg:max-w-[40%] object-cover"
+    />
 
     <div class="flex gap-y-10 flex-col w-full">
       <BaseTitle>

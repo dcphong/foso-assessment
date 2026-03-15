@@ -1,6 +1,8 @@
 <template>
-  <div class="py-24 px-24 gap-24 flex flex-row-reverse">
-    <div class="flex flex-col gap-y-10 max-w-1/2 w-full">
+  <div
+    class="py-8 px-4 sm:px-8 md:px-12 lg:py-24 lg:px-24 gap-8 lg:gap-24 flex flex-col lg:flex-row-reverse"
+  >
+    <div class="flex flex-col gap-y-10 lg:max-w-1/2 w-full">
       <BaseTitle>
         {{ $t("pedicure") }}
       </BaseTitle>
@@ -13,7 +15,11 @@
       />
     </div>
 
-    <img :src="PedicureSectionPicture" alt="" class="object-cover w-full" />
+    <img
+      :src="PedicureSectionPicture"
+      alt=""
+      class="object-cover w-full lg:max-w-1/2"
+    />
   </div>
 </template>
 

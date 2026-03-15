@@ -8,11 +8,11 @@ import PedicureSection from "@/components/PedicureSection.vue";
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative overflow-hidden">
     <img
       src="../assets/images/main-bg.png"
       alt=""
-      class="absolute inset-0 -translate-y-160 w-full h-full z-0"
+      class="absolute inset-0 -translate-y-36 sm:-translate-y-56 md:-translate-y-72 lg:-translate-y-112 xl:-translate-y-160 w-full h-full z-0 object-cover"
     />
 
     <div

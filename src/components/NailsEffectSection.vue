@@ -1,6 +1,8 @@
 <template>
-  <div class="pt-24 px-24 gap-24 flex">
-    <div class="flex flex-col gap-y-10 max-w-1/2 w-full">
+  <div
+    class="pt-8 px-4 sm:px-8 md:px-12 lg:pt-24 lg:px-24 gap-8 lg:gap-24 flex flex-col lg:flex-row"
+  >
+    <div class="flex flex-col gap-y-10 lg:max-w-1/2 w-full">
       <BaseTitle>
         {{ $t("effect") }}
       </BaseTitle>
@@ -12,7 +14,7 @@
         :onClick="() => useCartStore().addToCart({ ...data, id: 31 + index })"
       />
     </div>
-    <div class="max-w-204">
+    <div class="w-full lg:max-w-204">
       <img
         :src="NailsEffectSectionPicture"
         alt="Nails Effect Section"

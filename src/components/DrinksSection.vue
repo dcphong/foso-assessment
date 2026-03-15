@@ -1,13 +1,15 @@
 <template>
-  <div class="p-24 gap-24 flex">
-    <div class="max-w-[816px] h-[661px] w-full">
+  <div
+    class="p-4 sm:p-8 md:p-12 lg:p-24 gap-8 lg:gap-24 flex flex-col lg:flex-row"
+  >
+    <div class="w-full lg:max-w-204 h-64 sm:h-80 md:h-96 lg:h-165.25">
       <img
         :src="DrinkSectionPicture"
         alt=""
         class="object-cover w-full h-full"
       />
     </div>
-    <div class="flex flex-col gap-y-10 max-w-1/2 w-full">
+    <div class="flex flex-col gap-y-10 lg:max-w-1/2 w-full">
       <BaseTitle>
         {{ $t("drinks") }}
       </BaseTitle>

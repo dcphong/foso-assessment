@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-12" :class="props.class">
+  <div class="flex flex-col gap-6 sm:gap-8 lg:gap-12" :class="props.class">
     <div class="relative" :class="pictureContainerClass">
       <img
         :src="props.review_picture"
@@ -13,8 +13,10 @@
         alt=""
       />
     </div>
-    <div class="flex gap-6">
-      <div class="size-24! rounded-full overflow-hidden shrink-0">
+    <div class="flex gap-4 sm:gap-6">
+      <div
+        class="size-16 sm:size-20 lg:size-24! rounded-full overflow-hidden shrink-0"
+      >
         <img
           :src="props.customer_picture"
           :alt="props.customer_name"
@@ -23,10 +25,14 @@
       </div>
       <div
         :class="props.commentContainerClass"
-        class="flex flex-col gap-6 text-start w-fit text-white"
+        class="flex flex-col gap-4 sm:gap-6 text-start w-full text-white"
       >
-        <span class="font-bold text-5xl">{{ props.customer_name }}</span>
-        <div class="flex flex-col text-[28px] font-normal">
+        <span class="font-bold text-2xl sm:text-4xl lg:text-5xl">{{
+          props.customer_name
+        }}</span>
+        <div
+          class="flex flex-col text-base sm:text-2xl lg:text-[28px] font-normal"
+        >
           <span>{{ props.comment }}...</span>
           <span class="text-[rgba(188,151,140,1)]! underline cursor-pointer">{{
             $t("viewMore")
