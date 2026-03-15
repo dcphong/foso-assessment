@@ -10,14 +10,20 @@
       <X class="text-[rgba(130,76,8,1)] size-6" />
     </button>
 
-    <div class="flex flex-col border-t border-[#b28042b3]">
+    <div
+      class="flex flex-col justify-between h-full border-t border-[#b28042b3]"
+    >
       <div
         class="py-6 capitalize w-full text-center text-[rgba(130,76,8,1)] text-[32px] font-normal border-b border-[rgba(130,76,8,0.2)]"
       >
-        <span>{{ $t("cart") }}</span>
+        <span v-if="useCartStore().step != 2">{{ $t("cart") }}</span>
+        <span v-else>{{ $t("verifyBooking") }}</span>
       </div>
 
-      <div class="flex flex-col max-h-[555px] overflow-y-auto">
+      <div
+        v-if="useCartStore().step != 2"
+        class="flex flex-col max-h-[555px] overflow-y-auto h-full"
+      >
         <div
           class="flex-col flex"
           v-for="(item, index) in useCartStore().cartItems"
@@ -96,8 +102,100 @@
         </div>
       </div>
 
+      <div v-else class="py-6 px-3 gap-3 flex flex-col">
+        <div class="flex flex-col gap-3">
+          <div
+            v-for="(input, index) in ['customerName', 'phone']"
+            :key="index"
+            class="flex flex-col gap-1"
+          >
+            <label class="text-[rgba(82,60,20,1)] text-3" for="customerName">{{
+              $t(input)
+            }}</label>
+            <input
+              :placeholder="
+                $t('enter' + input.charAt(0).toUpperCase() + input.slice(1))
+              "
+              type="text"
+              name="customerName"
+              class="w-full outline-0 h-[35px] border-[rgba(0,0,0,0.16)] border-b"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div
+            class="h-[24px] align-bottom text-[rgba(82,60,20,1)] text-[12px]"
+          >
+            <span>{{ $t("pickDate") }}</span>
+          </div>
+
+          <div
+            class="gap-3 flex max-w-[392px] overflow-x-auto vertical-scrollbar"
+          >
+            <div
+              v-for="(day, index) in availablesDays"
+              :key="index"
+              class="hover:bg-[rgba(246,198,73,1)] bg-[rgba(229,227,220,1)] p-4 flex flex-col text-center min-w-[89px] text-[rgba(41,30,10,1)] transition-colors duration-300 cursor-pointer"
+            >
+              <span class="font-semibold capitalize text-sm">{{
+                day.dayName
+              }}</span>
+              <span class="text-[10px]">{{ day.dateStr }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div
+            class="h-[24px] align-bottom text-[rgba(82,60,20,1)] text-[12px]"
+          >
+            <span>{{ $t("pickTime") }}</span>
+          </div>
+
+          <div
+            class="gap-3 flex flex-wrap max-w-[392px] overflow-x-auto vertical-scrollbar"
+          >
+            <div
+              v-for="(time, index) in [
+                '09:00',
+                '09:30',
+                '10:00',
+                '10:30',
+                '11:00'
+              ]"
+              :key="index"
+              class="hover:bg-[rgba(185,121,81,1)] bg-[rgba(229,227,220,1)] p-4 flex flex-col text-center min-w-[89px] text-[rgba(41,30,10,1)] transition-colors duration-300 cursor-pointer"
+            >
+              <span class="font-semibold capitalize text-sm">{{ time }}</span>
+              <span class="text-[10px]">AM</span>
+            </div>
+            <div
+              v-for="(time, index) in [
+                '01:30',
+                '02:00',
+                '02:30',
+                '03:00',
+                '03:30',
+                '04:00',
+                '04:30',
+                '05:00',
+                '05:30',
+                '06:00',
+                '06:30'
+              ]"
+              :key="index"
+              class="hover:bg-[rgba(185,121,81,1)] bg-[rgba(229,227,220,1)] p-4 flex flex-col text-center min-w-[89px] text-[rgba(41,30,10,1)] transition-colors duration-300 cursor-pointer"
+            >
+              <span class="font-semibold capitalize text-sm">{{ time }}</span>
+              <span class="text-[10px]">PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="py-4 px-3 gap-6 flex flex-col">
-        <div class="flex flex-col gap-4">
+        <div v-if="useCartStore().step != 2" class="flex flex-col gap-4">
           <div class="flex justify-between items-center">
             <span class="text-base font-normal text-[rgba(136,136,136,1)]">{{
               $t("technician")
@@ -130,9 +228,34 @@
         </div>
 
         <button
+          v-if="useCartStore().step != 2"
+          :class="{
+            'opacity-40 cursor-not-allowed! ': useCartStore().itemsCount < 1
+          }"
           class="bg-[rgba(130,76,8,1)] hover:text-[rgba(130,76,8,1)] border-[rgba(130,76,8,1)] py-3 px-5 text-base font-medium text-[rgba(250,245,235,1)] hover:bg-[rgba(250,245,235,1)] border transition-colors duration-300 cursor-pointer flex justify-between items-center group"
+          @click="
+            () => {
+              if (useCartStore().itemsCount > 0) useCartStore().nextStep();
+            }
+          "
         >
           <span>{{ $t("continue") }}</span>
+          <ArrowRight
+            class="size-6 group-hover:scale-120 transition-transform duration-300"
+          />
+        </button>
+        <button
+          v-else
+          class="bg-[rgba(130,76,8,1)] hover:text-[rgba(130,76,8,1)] border-[rgba(130,76,8,1)] py-3 px-5 text-base font-medium text-[rgba(250,245,235,1)] hover:bg-[rgba(250,245,235,1)] border transition-colors duration-300 cursor-pointer flex justify-between items-center group"
+          @click="
+            () => {
+              (useCartStore().clearCart(),
+                useCartStore().toggleCartPanel(),
+                useCartStore().openSuccessfullModal());
+            }
+          "
+        >
+          <span>{{ $t("book") }}</span>
           <ArrowRight
             class="size-6 group-hover:scale-120 transition-transform duration-300"
           />
@@ -146,6 +269,7 @@
 import { IMAGES } from "@/constants/images";
 import { useCartStore } from "@/stores/useCart";
 import { CURRENCY_SYMBOL } from "@/utils/Currency";
+import { getDaysUntilWeekend } from "@/utils/date";
 import { convertDate } from "@/utils/dateConvert";
 import {
   ArrowRight,
@@ -155,7 +279,11 @@ import {
   Plus,
   X
 } from "lucide-vue-next";
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const count = ref(0);
+const availablesDays = computed(() => getDaysUntilWeekend(t));
 </script>

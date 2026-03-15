@@ -8,6 +8,8 @@ import CommentsFromCustomersSection from "@/components/CommentsFromCustomersSect
 import ScrollHeader from "@/components/ScrollHeader.vue";
 import CartMenuPanel from "@/components/CartMenuPanel.vue";
 import BackdropOverlay from "@/components/BackdropOverlay.vue";
+import { useBackdropStore } from "@/stores/useBackdrop";
+import BookingSuccessfulModal from "@/components/BookingSuccessfulModal.vue";
 import { useCartStore } from "@/stores/useCart";
 </script>
 
@@ -15,7 +17,13 @@ import { useCartStore } from "@/stores/useCart";
   <div>
     <CartMenuPanel />
     <MainLayout class="relative">
-      <BackdropOverlay v-if="useCartStore().openCartPanel" />
+      <div
+        v-if="useCartStore().successfullModalOpen"
+        class="h-screen fixed z-999 inset-0 flex items-center justify-center"
+      >
+        <BookingSuccessfulModal />
+      </div>
+      <BackdropOverlay v-if="useBackdropStore().isBackdropOpen" />
       <MainHeader />
       <ScrollHeader />
       <MainSection />

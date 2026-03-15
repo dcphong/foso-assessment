@@ -34,5 +34,18 @@ export default {
   undefined: "không xác định",
   leopardSkin: "Da beo",
   technician: "Kỹ thuật viên",
-  continue: "Tiếp tục"
+  continue: "Tiếp tục",
+  verifyBooking: "Xác nhận đặt lịch",
+  book: "Đặt lịch",
+  customerName: "Tên khách hàng",
+  phone: "Số điện thoại",
+  enterCustomerName: "Nhập tên khách hàng",
+  enterPhone: "Nhập số điện thoại",
+  pickDate: "Chọn ngày",
+  sunday: "chủ nhật",
+  thursday_prefix: "thứ",
+  pickTime: "Chọn khung giờ",
+  requestSuccessfull: "Gửi yêu cầu thành công",
+  successfullModalContent:
+    "Cảm ơn bạn đã đặt dịch vụ tại The OM Lounge. Chúng tôi đã nhận được thông tin đặt lịch từ bạn và sẽ liên hệ lại trong thời gian sớm nhất"
 };

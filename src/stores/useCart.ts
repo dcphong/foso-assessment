@@ -8,15 +8,27 @@ export const useCartStore = defineStore("cart", () => {
   const cartItems = ref<CartItem[]>(getStoredCart(STORAGE_KEY));
   const itemsCount = computed<number>(() => Number(cartItems.value.length));
   const openCartPanel = ref(false);
+  const step = ref(1);
+  const successfullModalOpen = ref(false);
+
+  const openSuccessfullModal = () => {
+    successfullModalOpen.value = true;
+  };
+  const closeSuccessfullModal = () => {
+    successfullModalOpen.value = false;
+  };
+
+  const nextStep = () => {
+    step.value += 1;
+  };
+
+  const prevStep = () => {
+    if (step.value > 1) step.value -= 1;
+  };
 
   const toggleCartPanel = () => {
     openCartPanel.value = !openCartPanel.value;
   };
-
-  watch(openCartPanel, (isOpen) => {
-    if (isOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
-  });
 
   watch(
     cartItems,
@@ -59,6 +71,12 @@ export const useCartStore = defineStore("cart", () => {
     clearCart,
     itemsCount,
     openCartPanel,
-    toggleCartPanel
+    toggleCartPanel,
+    step,
+    nextStep,
+    prevStep,
+    successfullModalOpen,
+    openSuccessfullModal,
+    closeSuccessfullModal
   };
 });

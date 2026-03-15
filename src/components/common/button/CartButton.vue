@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import CircleCounter from "@/components/common/CircleCounter.vue";
 import ShoppingCart from "@/components/common/icons/ShoppingCart.vue";
+import { useBackdropStore } from "@/stores/useBackdrop";
 import { useCartStore } from "@/stores/useCart";
 </script>
 
 <template>
   <button
-    @click="() => useCartStore().toggleCartPanel()"
+    @click="
+      () => {
+        (useCartStore().toggleCartPanel(), useBackdropStore().toggleBackdrop());
+      }
+    "
     class="px-5 py-3 flex gap-3 bg-(--primary-button) uppercase text-white hover:bg-(--primary-button-hover)! group transition-colors duration-300 cursor-pointer"
   >
     <ShoppingCart
