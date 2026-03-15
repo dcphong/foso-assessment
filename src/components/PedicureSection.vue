@@ -6,9 +6,10 @@
       </BaseTitle>
 
       <CollapseBase
-        v-for="(data, index) in dataList"
+        v-for="(data, index) in pedicureDataList($t)"
         :key="index"
         v-bind="data"
+        :onClick="() => useCartStore().addToCart({ ...data, id: 21 + index })"
       />
     </div>
 
@@ -20,13 +21,6 @@
 import PedicureSectionPicture from "@/assets/images/pedicure.png";
 import BaseTitle from "@/components/BaseTitle.vue";
 import CollapseBase from "@/components/CollapseBase.vue";
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
-const exampleDatas = {
-  title: "Perfectly Polished",
-  description: t("perfectlyPolished"),
-  price: 390
-};
-const dataList = Array(5).fill(exampleDatas);
+import { pedicureDataList } from "@/constants/staticData";
+import { useCartStore } from "@/stores/useCart";
 </script>

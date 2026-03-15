@@ -6,9 +6,10 @@
       </BaseTitle>
 
       <CollapseBase
-        v-for="(data, index) in dataList"
+        v-for="(data, index) in effectDataList($t)"
         :key="index"
         v-bind="data"
+        :onClick="() => useCartStore().addToCart({ ...data, id: 31 + index })"
       />
     </div>
     <div class="max-w-204">
@@ -25,6 +26,8 @@
 import NailsEffectSectionPicture from "@/assets/images/effect-section.png";
 import BaseTitle from "@/components/BaseTitle.vue";
 import CollapseBase from "@/components/CollapseBase.vue";
+import { effectDataList } from "@/constants/staticData";
+import { useCartStore } from "@/stores/useCart";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();

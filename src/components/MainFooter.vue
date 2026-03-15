@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[rgba(41,30,10,1)] pt-16 px-24 relative">
+  <div class="bg-[rgba(41,30,10,1)] py-16 px-24 relative">
     <img
       src="../assets/images/flower.png"
       class="absolute top-0 right-0"

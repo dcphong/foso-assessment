@@ -18,6 +18,7 @@
       </div>
       <CustomAdd
         class="hover:rotate-90 transition-transform duration-300 cursor-pointer"
+        @click="props.onClick"
       />
     </div>
   </div>
@@ -34,6 +35,7 @@ const props = withDefaults(
     description?: string;
     price?: number;
     currency?: string;
+    onClick?: () => void;
   }>(),
   {
     title: "Title",

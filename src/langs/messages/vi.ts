@@ -26,5 +26,13 @@ export default {
     "6 Đường G, Phú Mỹ, Quận 7, TP Hồ Chí Minh (gần Crescent Mall)",
   mondayFriday: "Thứ 2 - Thứ 6",
   saturdaySunday: "Thứ 7 - Chủ nhật",
-  bookNow: "Đặt lịch ngay"
+  bookNow: "Đặt lịch ngay",
+  minute: "phút",
+  hour: "giờ",
+  day: "ngày",
+  justNow: "mới đây",
+  undefined: "không xác định",
+  leopardSkin: "Da beo",
+  technician: "Kỹ thuật viên",
+  continue: "Tiếp tục"
 };

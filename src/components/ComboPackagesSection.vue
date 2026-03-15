@@ -9,11 +9,18 @@
 
       <div class="flex flex-col gap-6">
         <CollapseBase
-          v-for="(item, index) in comboPackages"
+          v-for="(item, index) in comboPackage($t)"
           :key="index"
           :title="item.title"
           :description="item.descriptions"
           :price="item.price"
+          :onClick="
+            () =>
+              useCartStore().addToCart({
+                ...item,
+                id: 1 + index
+              })
+          "
         />
       </div>
     </div>
@@ -24,15 +31,6 @@
 import nailsPicture from "@/assets/images/combo-package/nails.png";
 import BaseTitle from "@/components/BaseTitle.vue";
 import CollapseBase from "@/components/CollapseBase.vue";
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
-
-const exampleDatas = {
-  title: "Perfectly Polished",
-  descriptions: t("perfectlyPolished"),
-  price: 390
-};
-
-const comboPackages = Array(5).fill(exampleDatas);
+import { comboPackage } from "@/constants/staticData";
+import { useCartStore } from "@/stores/useCart";
 </script>

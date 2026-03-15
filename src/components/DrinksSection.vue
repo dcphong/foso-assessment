@@ -16,6 +16,14 @@
         v-for="(data, index) in dataList"
         :key="index"
         v-bind="data"
+        @click="
+          () =>
+            useCartStore().addToCart({
+              ...data,
+              id: 41 + index,
+              image: 4
+            })
+        "
       />
     </div>
   </div>
@@ -25,6 +33,7 @@
 import DrinkSectionPicture from "@/assets/images/latte.jpg";
 import BaseTitle from "@/components/BaseTitle.vue";
 import CollapseBase from "@/components/CollapseBase.vue";
+import { useCartStore } from "@/stores/useCart";
 
 const dataList = [
   {
