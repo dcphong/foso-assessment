@@ -1,0 +1,42 @@
+<template>
+  <div
+    class="pt-8 px-4 sm:px-8 md:px-12 lg:pt-12 lg:px-24 gap-8 lg:gap-24 flex flex-col lg:flex-row"
+  >
+    <img
+      :src="nailsPicture"
+      alt="Nails"
+      class="w-full lg:max-w-[40%] object-cover"
+    />
+
+    <div class="flex gap-y-10 flex-col w-full">
+      <BaseTitle>
+        {{ $t("comboPackages") }}
+      </BaseTitle>
+
+      <div class="flex flex-col gap-6">
+        <CollapseBase
+          v-for="(item, index) in comboPackage($t)"
+          :key="index"
+          :title="item.title"
+          :description="item.descriptions"
+          :price="item.price"
+          :onClick="
+            () =>
+              useCartStore().addToCart({
+                ...item,
+                id: 1 + index
+              })
+          "
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import nailsPicture from "@/assets/images/combo-package/nails.png";
+import BaseTitle from "@/components/BaseTitle.vue";
+import CollapseBase from "@/components/CollapseBase.vue";
+import { comboPackage } from "@/constants/staticData";
+import { useCartStore } from "@/stores/useCart";
+</script>
